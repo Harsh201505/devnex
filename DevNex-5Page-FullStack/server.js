@@ -33,7 +33,16 @@ app.use(express.json({limit:"20kb"}));
 app.use(express.urlencoded({extended:false,limit:"20kb"}));
 app.use(express.static(path.join(__dirname,"public")));
 
-const db=new sqlite3.Database(path.join(__dirname,"data","devnex.db"));
+const fs = require("fs");
+
+const dataDir = path.join(__dirname, "data");
+
+if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+}
+
+const dbPath = path.join(dataDir, "devnex.db");
+const db = new sqlite3.Database(dbPath);
 db.serialize(()=>db.run(`CREATE TABLE IF NOT EXISTS enquiries(
  id INTEGER PRIMARY KEY AUTOINCREMENT,
  name TEXT NOT NULL,
