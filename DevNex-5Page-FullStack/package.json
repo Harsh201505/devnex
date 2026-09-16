@@ -1,0 +1,18 @@
+{
+  "name": "devnex-5page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dev.Nex 5-page website with Express + SQLite backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "sqlite3": "^5.1.7"
+  }
+}
