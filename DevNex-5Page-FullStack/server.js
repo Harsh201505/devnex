@@ -23,7 +23,6 @@ app.use(express.json({limit:"20kb"}));
 app.use(express.urlencoded({extended:false,limit:"20kb"}));
 app.use(express.static(path.join(__dirname,"public")));
 
-const fs = require("fs");
 
 const dataDir = path.join(__dirname, "data");
 
