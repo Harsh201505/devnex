@@ -17,16 +17,6 @@ fs.mkdirSync(dataDir, { recursive: true });
 
 const dbPath = path.join(dataDir, "devnex.db");
 const db = new sqlite3.Database(dbPath);
-require("dotenv").config();
-const express=require("express");
-const path=require("path");
-const sqlite3=require("sqlite3").verbose();
-const helmet=require("helmet");
-const rateLimit=require("express-rate-limit");
-
-const app=express();
-const PORT=process.env.PORT||3000;
-const ADMIN_KEY=process.env.ADMIN_KEY||"change-this-key";
 
 app.use(helmet({contentSecurityPolicy:false}));
 app.use(express.json({limit:"20kb"}));
